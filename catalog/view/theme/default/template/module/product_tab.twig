@@ -1,0 +1,125 @@
+<div id="tabs-{{ module }}" class="htabs">
+  {% if latest_products%}
+  <a href="#tab-latest-{{ module }}">{{ tab_latest }}</a>
+  {% endif %}
+  {% if featured_products%}
+  <a href="#tab-featured-{{ module }}">{{ tab_featured }}</a>
+  {% endif %}
+  {% if bestseller_products%}
+  <a href="#tab-bestseller-{{ module }}">{{ tab_bestseller }}</a>
+  {% endif %}
+  {% if special_products%}
+  <a href="#tab-special-{{ module }}">{{ tab_special }}</a>
+  {% endif %}
+</div>
+{% if latest_products%}
+ <div id="tab-latest-{{ module }}" class="tab-content">
+    <div class="box-product">
+      {% for product in latest_products %}
+      <div>
+        {% if  product.thumb %}
+        <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a></div>
+        {% endfor %}
+        <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+        {% if  product.price %}
+        <div class="price">
+          {% if  not product.special %}
+          {{ product.price }}
+          {% endif %} {% else %}
+          <span class="price-old">{{ product.price }}</span> <span class="price-new">{{ product.special }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if  product.rating %}
+        <div class="rating"><img src="catalog/view/theme/default/image/stars-{{ product.rating }}.png" alt="{{ product.reviews }}" /></div>
+        {% endif %}
+        <div class="cart"><input type="button" value="{{ button_cart }}" onclick="addToCart('{{ product.product_id }}');" class="button" /></div>
+      </div>
+      {% endif %}
+    </div>
+ </div>
+
+{% if featured_products%}
+  <div id="tab-featured-{{ module }}" class="tab-content">
+    <div class="box-product">
+      {% for product in featured_products %}
+      <div>
+        {% if  product.thumb %}
+        <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a></div>
+        {% endfor %}
+        <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+        {% if  product.price %}
+        <div class="price">
+          {% if  not product.special %}
+          {{ product.price }}
+          {% endif %} {% else %}
+          <span class="price-old">{{ product.price }}</span> <span class="price-new">{{ product.special }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if  product.rating %}
+        <div class="rating"><img src="catalog/view/theme/default/image/stars-{{ product.rating }}.png" alt="{{ product.reviews }}" /></div>
+        {% endif %}
+        <div class="cart"><input type="button" value="{{ button_cart }}" onclick="addToCart('{{ product.product_id }}');" class="button" /></div>
+      </div>
+      {% endif %}
+    </div>
+ </div>
+
+{% if bestseller_products%}
+ <div id="tab-bestseller-{{ module }}" class="tab-content">
+    <div class="box-product">
+      {% for product in bestseller_products %}
+      <div>
+        {% if  product.thumb %}
+        <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a></div>
+        {% endfor %}
+        <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+        {% if  product.price %}
+        <div class="price">
+          {% if  not product.special %}
+          {{ product.price }}
+          {% endif %} {% else %}
+          <span class="price-old">{{ product.price }}</span> <span class="price-new">{{ product.special }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if  product.rating %}
+        <div class="rating"><img src="catalog/view/theme/default/image/stars-{{ product.rating }}.png" alt="{{ product.reviews }}" /></div>
+        {% endif %}
+        <div class="cart"><input type="button" value="{{ button_cart }}" onclick="addToCart('{{ product.product_id }}');" class="button" /></div>
+      </div>
+      {% endif %}
+    </div>
+ </div>
+
+{% if special_products%}
+ <div id="tab-special-{{ module }}" class="tab-content">
+    <div class="box-product">
+      {% for product in special_products %}
+      <div>
+        {% if  product.thumb %}
+        <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a></div>
+        {% endfor %}
+        <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+        {% if  product.price %}
+        <div class="price">
+          {% if  not product.special %}
+          {{ product.price }}
+          {% endif %} {% else %}
+          <span class="price-old">{{ product.price }}</span> <span class="price-new">{{ product.special }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if  product.rating %}
+        <div class="rating"><img src="catalog/view/theme/default/image/stars-{{ product.rating }}.png" alt="{{ product.reviews }}" /></div>
+        {% endif %}
+        <div class="cart"><input type="button" value="{{ button_cart }}" onclick="addToCart('{{ product.product_id }}');" class="button" /></div>
+      </div>
+      {% endif %}
+    </div>
+ </div>
+
+<script type="text/javascript">
+$('#tabs-{{ module }} a').tabs();
+</script>
